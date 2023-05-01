@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="FirePG2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/FirePG2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="SDL2/SDL2-2.26.3/x86_64-w64-mingw32/include/SDL2" />
+					<Add directory="SDL2/SDL2_image-2.6.3/x86_64-w64-mingw32/include/SDL2" />
+					<Add directory="SDL2/SDL2_ttf-2.20.2/x86_64-w64-mingw32/include/SDL2" />
+					<Add directory="SDL2/SDL2_mixer-2.6.3/x86_64-w64-mingw32/include/SDL2" />
+					<Add directory="/." />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer" />
+					<Add directory="SDL2/SDL2-2.26.3/x86_64-w64-mingw32/lib" />
+					<Add directory="SDL2/SDL2_image-2.6.3/x86_64-w64-mingw32/lib" />
+					<Add directory="SDL2/SDL2_ttf-2.20.2/x86_64-w64-mingw32/lib" />
+					<Add directory="SDL2/SDL2_mixer-2.6.3/x86_64-w64-mingw32/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/FirePG2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="include/E_rocket.h" />
+		<Unit filename="include/HP_buff.h" />
+		<Unit filename="include/Skill.h" />
+		<Unit filename="include/Skill_E.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="include/TextureManager.h" />
+		<Unit filename="include/base_object.h" />
+		<Unit filename="include/bulletObject.h" />
+		<Unit filename="include/button.h" />
+		<Unit filename="include/cursor.h" />
+		<Unit filename="include/enemy_tank.h" />
+		<Unit filename="include/explosion.h" />
+		<Unit filename="include/game.h" />
+		<Unit filename="include/game_map.h" />
+		<Unit filename="include/gate.h" />
+		<Unit filename="include/gun_tank.h" />
+		<Unit filename="include/main_tank.h" />
+		<Unit filename="include/menu.h" />
+		<Unit filename="include/text.h" />
+		<Unit filename="include/timers.h" />
+		<Unit filename="include/utils.h" />
+		<Unit filename="src/E_rocket.cpp" />
+		<Unit filename="src/HP_buff.cpp" />
+		<Unit filename="src/Skill.cpp" />
+		<Unit filename="src/Skill_E.cpp" />
+		<Unit filename="src/TextureManager.cpp" />
+		<Unit filename="src/base_object.cpp" />
+		<Unit filename="src/bulletObject.cpp" />
+		<Unit filename="src/button.cpp" />
+		<Unit filename="src/cursor.cpp" />
+		<Unit filename="src/enemy_tank.cpp" />
+		<Unit filename="src/explosion.cpp" />
+		<Unit filename="src/game.cpp" />
+		<Unit filename="src/game_map.cpp" />
+		<Unit filename="src/gate.cpp" />
+		<Unit filename="src/gun_tank.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/main_tank.cpp" />
+		<Unit filename="src/menu.cpp" />
+		<Unit filename="src/text.cpp" />
+		<Unit filename="src/timers.cpp" />
+		<Unit filename="src/utils.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
