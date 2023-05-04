@@ -25,6 +25,7 @@ void gameMap::dfs_generate_random_maze(int y, int x){
 
        static int direct_order[] = {0, 1, 2, 3};
        std::random_shuffle(direct_order, direct_order + 4);
+
        for(int i : direct_order){
 
               int next_y = y + directionY[i], next_x = x + directionX[i];

@@ -32,6 +32,7 @@ public:
        void setBulletList(const std::vector<bulletObject*> &new_bullet_list) {_bullet_list = new_bullet_list;}
        void renderHPBar(SDL_Renderer* renderer, const int &x, const int& y, const int &w, const int &h, SDL_Color color);
        void getCenter(int *x, int *y){*x = _x_in_level + TILE_SIZE / 2, *y = _y_in_level + TILE_SIZE / 2;}
+       void setMaxHealth(const int &maxHP) {_max_health_point = maxHP;}
        bool fitToCell();
 private:
 

@@ -296,18 +296,12 @@ void game::handleCombineEnemy(){
 
                      if( CommonFunction::checkCollision( _enemy_tank_list[i]->getBox(), _enemy_tank_list[j]->getBox() ) ){
 
-                            enemyTank* new_e_tank = new enemyTank (500,
-                                                                    ( _enemy_tank_list[i]->getHealth() + _enemy_tank_list[j]->getHealth() ),
-                                                                   _enemy_tank_list[i]->getBox().x,
-                                                                   _enemy_tank_list[i]->getBox().y,
-                                                                   gRenderer);
-                            delete _enemy_tank_list[i];
-                            _enemy_tank_list[i] = NULL;
+                            _enemy_tank_list[i]->setMaxHealth(_enemy_tank_list[i]->getHealth() + _enemy_tank_list[j]->getHealth());
+                            _enemy_tank_list[i]->changeHealth(_enemy_tank_list[j]->getHealth());
 
                             delete _enemy_tank_list[j];
                             _enemy_tank_list[j] = NULL;
 
-                            new_enemy_tank_list.push_back(new_e_tank);
                      }
 
               }
@@ -326,34 +320,51 @@ void game::handleCombineEnemy(){
 
 void game::handleTankMoving(){
 
-       int can_main_move = true;
-       std::vector<int> can_enemy_move(_enemy_tank_list.size(), true);
+       int can_main_move = true, check = true;
        _mTank->move();
+       if(!_mTank->checkValidPos(_map)) can_main_move = false, _mTank->move_back(), check = false;
 
-       if(!_mTank->checkValidPos(_map)) can_main_move = false;
+       for(int i = 0; i < (int)_enemy_tank_list.size(); i ++){
+              enemyTank* eTank = _enemy_tank_list[i];
+              eTank->move();
+       }
+       handleCombineEnemy();
+       for(int i = 0; i < (int)_enemy_tank_list.size(); i ++) _enemy_tank_list[i]->move_back();
+
+
+       std::vector<int> can_enemy_move(_enemy_tank_list.size(), true);
 
        for(int i = 0; i < (int)_enemy_tank_list.size(); i ++){
 
               enemyTank* eTank = _enemy_tank_list[i];
               int can_move_if_enemy_stop = !CommonFunction::checkCollision(_mTank->getBox(), eTank->getBox());
-
               eTank->move();
 
               if(CommonFunction::checkCollision(_mTank->getBox(), eTank->getBox())){
+
                      can_main_move &= can_move_if_enemy_stop;
                      can_enemy_move[i] = false;
+
               }
-              if(!eTank->checkValidPos(_map)) can_enemy_move[i] = false;
+              if(!eTank->checkValidPos(_map)){
+                   can_enemy_move[i] = false;
+              }
 
        }
 
-       if(!can_main_move) _mTank->move_back();
+       if(check && !can_main_move) _mTank->move_back();
 
        for(int i = 0; i < (int)_enemy_tank_list.size(); i ++){
-              if(!can_enemy_move[i]) _enemy_tank_list[i]->move_back();
+
+              if(!can_enemy_move[i]){
+
+                   _enemy_tank_list[i]->move_back();
+
+
+              }
+
        }
 
-       handleCombineEnemy();
 }
 
 void game::handleBulletCollision(){
@@ -585,7 +596,7 @@ void game::renderGamePlay(){
                      h_buff->draw(gRenderer, _map);
               }
 
-              for(auto eTank : _enemy_tank_list){
+              for(enemyTank* eTank : _enemy_tank_list){
                      eTank->draw(gRenderer, _map, eTank->getX() + TILE_SIZE / 2, eTank->getY() + TILE_SIZE / 2);
                      eTank->handleBullet(gRenderer, _map);
               }
