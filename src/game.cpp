@@ -300,6 +300,7 @@ void game::handleCombineEnemy(){
                             _enemy_tank_list[i]->changeHealth(_enemy_tank_list[j]->getHealth());
 
                             delete _enemy_tank_list[j];
+
                             _enemy_tank_list[j] = NULL;
 
                      }
