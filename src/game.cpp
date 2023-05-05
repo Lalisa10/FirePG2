@@ -233,7 +233,6 @@ void game::update(){
               handleTankBuff();
               handleBuffList();
               handleNextLevel();
-              //std::cout << _mTank->getX() << " " << _mTank->getY() << std::endl;
        }
        else{
               if(getStatus() == GAME_RESTART){
@@ -248,7 +247,7 @@ void game::update(){
 void game::generateEnemyTank(){
        int new_enemy_x = 0, new_enemy_y = 0;
 
-       while(true){
+       while(1){
 
               SDL_Point new_enemy_position = _map->getRandomSoilPos();
               new_enemy_x = new_enemy_position.x;

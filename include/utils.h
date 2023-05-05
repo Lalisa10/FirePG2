@@ -48,7 +48,7 @@ const int FRAME_FLICKER = 4;
 const int TIME_ENEMY_APPEAR = 4000;
 const int HP_WIDTH = 64;
 const int HP_HEIGHT = 10;
-const int MAX_MAIN_HP = 30000;
+const int MAX_MAIN_HP = 300;
 const int MAX_ENEMY_HP = 100;
 const int E_COOLDOWN = 4000;
 
