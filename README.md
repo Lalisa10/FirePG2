@@ -7,7 +7,10 @@
 - Người chơi sẽ điều khiển một xe tăng để đi khám phá mê cung.
 - Xuất phát từ góc trái trên của bản đồ, người chơi cần đi đến đích ở góc phải dưới.
 - Trên đường đi xe tăng sẽ phải đối đầu với các xe tăng địch, cần tiêu diệt chúng để nhận điểm số. Sau khi địch chết sẽ ra một lượng máu, di chuyển đến vị trí đó để nhặt máu.
-- Sau khi đến ô phải dưới, người chơi sẽ được chuyển đến một bản đồ mới, cộng một lượng điểm số lớn. Game sẽ chơi vô hạn cho đến khi nhân vật chính bị tiêu diệt.
+- Kẻ địch sẽ luôn truy đuổi theo nhân vật chính, khi 2 kẻ địch va chạm chúng sẽ gộp lại làm 1 với lượng máu kết hợp.
+- Sau khi đến ô phải dưới, người chơi sẽ được chuyển đến một bản đồ mới.
+- Mỗi khi di chuyển đến một bản đồ mới, người chơi sẽ nhận một lượng điểm số lớn. Nhân vật chính và kẻ địch sẽ cùng được buff máu tối đa.
+- Game sẽ chơi vô hạn cho đến khi nhân vật chính bị tiêu diệt.
 ## Technologies
   * *IDE:*
 Code::Blocks 20.03
