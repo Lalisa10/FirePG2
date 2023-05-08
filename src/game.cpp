@@ -124,6 +124,7 @@ void game::startGame(){
        loadMap();
 
        _mTank = new mainTank (300, MAX_MAIN_HP, 64, 64, gRenderer);
+       MAX_ENEMY_HP = 100;
        if(_mTank == NULL) CommonFunction::logSDLError(std::cout, "Load main tank", true);
 
        for(int _ = ENEMY_NUMBER; _ ; _ --){
@@ -154,6 +155,8 @@ void game::goToNextMap(){
        loadMap();
 
        _mTank = new mainTank (300, temp_main_hp + 100, 64, 64, gRenderer);
+       MAX_ENEMY_HP += 20;
+
        if(_mTank == NULL) CommonFunction::logSDLError(std::cout, "Load main tank", true);
 
        for(int _ = ENEMY_NUMBER; _ ; _ --){
