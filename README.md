@@ -29,6 +29,7 @@ SDL2-2.26.3, SDL2_image-2.6.3, SDL2_ttf-2.20.2, SDL2_mixer-2.6.3
   - *A:* Di chuyển sang trái
   - *Chuột trái:* Bắn đạn bay thẳng theo hướng con trỏ chuột
   - *E:* Sử dụng chiêu thức, cho ra một tên lửa di chuyển theo kẻ địch
+  - **Lưu ý: Tắt unikey để di chuyển mượt hơn**
 ## Algorithms
   - Game sử dụng thuật toán *Tìm kiếm theo chiều sâu(DFS)* để xây dựng một mê cung ngẫu nhiên https://en.wikipedia.org/wiki/Maze_generation_algorithm
   - Các đối tượng xe tăng địch luôn phải đuối theo nhân vật chính. Sử dụng thuật toán *BFS* để xử lí.
